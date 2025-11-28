@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Navbar</title>
+    <style>
+        .navbar {
+
+            background-color: #333;
+            overflow: hidden;
+            display: flex;
+            justify-content: center;
+            padding: 10px 0;
+        }
+        .navbar a {
+            color: #fff;
+            text-decoration: none;
+            padding: 14px 20px;
+            display: block;
+        }
+        .navbar a:hover {
+            background-color: #575757;
+        }
+    </style>
+</head>
+<body>
+    <div class="navbar">
+        <a href="/subject/image">image</a>
+        
+        <a href="/subject/year">year</a>
+
+        <a href="/subject/destiny">destiny</a>
+
+        <a href="/subject/today">today</a>
+        
+        <a href="/subject/group">group</a>
+        
+        <a href="/modes">modes</a>
+        
+        <a href="/clear">reset</a>
+
+
+        
+                
+    </div>
+
+    <div id="content">{% block content %}{% endblock %}</div>
+
+</body>
+</html>

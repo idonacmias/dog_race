@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>home</title>
+</head>
+<body>
+    {% extends "navbar.html" %}
+    {% block content %}
+    
+    <h1>{{answer}}</h1>
+    <form method="get">
+    {% for dog in options %}
+        <button type="submit" name="name" value="{{dog}}">{{dog}}</button> 
+    {% endfor %}
+    </form>
+
+    <h1>{{score}}</h1>
+    {% endblock %}
+
+</body>
+</html>
