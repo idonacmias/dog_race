@@ -2,8 +2,15 @@ from flask import Flask, session, render_template, request, redirect
 from flask_session import Session 
 from os import listdir
 from random import shuffle, randrange
-from data import dog_races
+import json
 
+def initioal_data():
+
+    with open('data.json') as f:
+        dog_races = json.load(f)
+
+    dog_races = add_image_to_data(dog_races)
+    return dog_races
 
 def add_image_to_data(dog_races):
     images = listdir(path='static/images')
@@ -23,15 +30,15 @@ def add_image_to_data(dog_races):
         if not 'image' in dog_races[dog].keys():
             dog_races[dog].update({'image' : '/static/images/image_not_fuond.jpg'})
 
+    return dog_races
 
 app = Flask(__name__)
 app.config['STATIC_FOLDER'] = 'static' 
 SESSION_TYPE = "filesystem"
 app.config.from_object(__name__)
+dog_races = initioal_data()
 Session(app)
 
-
-add_image_to_data(dog_races)
 
 @app.route('/')
 def home():
